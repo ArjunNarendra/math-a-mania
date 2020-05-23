@@ -17,6 +17,7 @@ import org.overlake.mat803.multiplechoicemathquiz.MultipleChoice.Category;
 import org.overlake.mat803.multiplechoicemathquiz.MultipleChoice.Question;
 import org.overlake.mat803.multiplechoicemathquiz.MultipleChoice.QuizActivity;
 import org.overlake.mat803.multiplechoicemathquiz.MultipleChoice.QuizDbHelper;
+import org.overlake.mat803.multiplechoicemathquiz.TakeNotes.NotesListActivity;
 
 import java.util.List;
 
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button buttonStartQuiz = findViewById(R.id.button_start_quiz);
         Button buttonStartGame = findViewById(R.id.button_start_minigame);
+        Button buttonTakeNotes = findViewById(R.id.button_take_notes);
         buttonStartGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +68,13 @@ public class MainActivity extends AppCompatActivity {
                 startQuiz();
             }
         });
+        buttonTakeNotes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                takeNotes();
+            }
+        });
+
     }
 
     private void startMiniGame() {
@@ -84,6 +93,11 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_CATEGORY_NAME, categoryName);
         intent.putExtra(EXTRA_DIFFICULTY, difficulty);
         startActivityForResult(intent, REQUEST_CODE_QUIZ);
+    }
+
+    private void takeNotes() {
+        Intent intent = new Intent(MainActivity.this, NotesListActivity.class);
+        startActivity(intent);
     }
 
     @Override
