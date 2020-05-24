@@ -4,6 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.AudioAttributes;
+import android.media.AudioManager;
+import android.media.SoundPool;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 
@@ -26,6 +30,9 @@ public class MiniGameActivity extends AppCompatActivity {
     private static final String KEY_NUMBER_INCORRECT = "keyNumberIncorrect";
     private static final String KEY_CURRENT_QUESTION = "keyCurrentQuestion";
 
+    private SoundPool soundPool;
+    private int sound_correct;
+    private int sound_incorrect;
 
     private CountDownTimer countDownTimer;
 
@@ -52,6 +59,10 @@ public class MiniGameActivity extends AppCompatActivity {
         tv_timer = findViewById(R.id.tv_timer);
         prog_timer = findViewById(R.id.prog_timer);
         timeLeftInMillis = 30000;
+
+        setTitle("Add, Add, Add!");
+
+        loadSoundPool();
         g = new Game();
 
         if (savedInstanceState == null) {
@@ -75,7 +86,8 @@ public class MiniGameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Button buttonClicked = (Button) v;
                 int answerSelected = Integer.parseInt(buttonClicked.getText().toString());
-                g.checkAnswer(answerSelected);
+                boolean isCorrect = g.checkAnswer(answerSelected);
+                playSound(isCorrect);
                 tv_score.setText(Integer.toString(g.getScore()) + "pts");
                 nextTurn();
             }
@@ -84,6 +96,31 @@ public class MiniGameActivity extends AppCompatActivity {
         btn_answer1.setOnClickListener(answerButtonClickListener);
         btn_answer2.setOnClickListener(answerButtonClickListener);
         btn_answer3.setOnClickListener(answerButtonClickListener);
+    }
+
+    private void loadSoundPool() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            AudioAttributes audioAttributes = new AudioAttributes.Builder()
+                    .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
+                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                    .build();
+            soundPool = new SoundPool.Builder()
+                    .setMaxStreams(1)
+                    .setAudioAttributes(audioAttributes)
+                    .build();
+        } else {
+            soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
+        }
+        sound_correct = soundPool.load(this, R.raw.correct_minigame, 1);
+        sound_incorrect = soundPool.load(this, R.raw.incorrect_minigame, 1);
+    }
+
+    private void playSound(boolean isCorrect) {
+        if (isCorrect) {
+            soundPool.play(sound_correct, 1, 1, 0, 0, 1);
+        } else {
+            soundPool.play(sound_incorrect, 1, 1, 0, 0, 1);
+        }
     }
 
     private void startCountDown() {
@@ -161,6 +198,12 @@ public class MiniGameActivity extends AppCompatActivity {
             Toast.makeText(this, "Press back again to finish", Toast.LENGTH_SHORT).show();
         }
         backPressedTime = System.currentTimeMillis();
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        soundPool.release();
+        soundPool = null;
     }
 }

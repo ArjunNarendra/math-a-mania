@@ -48,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
         textViewHighscore = findViewById(R.id.text_view_highscore);
         textViewGameHighscore = findViewById(R.id.text_view_minigamehighscore);
         spinnerCategory = findViewById(R.id.spinner_category);
+
+        setTitle("Math-a-Mania");
+
         loadCategories();
         loadDifficultyLevels();
         loadHighscore();

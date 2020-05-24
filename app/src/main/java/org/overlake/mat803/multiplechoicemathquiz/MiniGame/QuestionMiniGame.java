@@ -1,7 +1,13 @@
 package org.overlake.mat803.multiplechoicemathquiz.MiniGame;
 
+import android.media.AudioAttributes;
+import android.media.AudioManager;
+import android.media.SoundPool;
+import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import org.overlake.mat803.multiplechoicemathquiz.R;
 
 import java.util.Random;
 
@@ -10,6 +16,7 @@ public class QuestionMiniGame implements Parcelable {
     private int firstNumber;
     private int secondNumber;
     private int answer;
+
 
     // there are four possible choices for the user to pick from
     private int[] answerArray;
@@ -40,6 +47,7 @@ public class QuestionMiniGame implements Parcelable {
         this.answerArray = shuffleArray(this.answerArray);
         answerArray[answerPosition] = answer;
     }
+
 
     protected QuestionMiniGame(Parcel in) {
         firstNumber = in.readInt();

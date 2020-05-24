@@ -6,8 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -49,6 +53,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private CountDownTimer countDownTimer;
     private long timeLeftInMillis;
+    MediaPlayer player;
 
 
     private ArrayList<Question> questionList;
@@ -79,6 +84,8 @@ public class QuizActivity extends AppCompatActivity {
 
         textColorDefaultRb = rb1.getTextColors();
         textColorDefaultCd = textViewCountDown.getTextColors();
+
+        setTitle("Test Your Knowledge");
 
         Intent intent = getIntent();
         int categoryID = intent.getIntExtra(MainActivity.EXTRA_CATEGORY_ID, 0);
@@ -221,6 +228,43 @@ public class QuizActivity extends AppCompatActivity {
         finish();
     }
 
+    public void play() {
+        if (player == null) {
+            player = MediaPlayer.create(this, R.raw.quiz_music);
+            player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    stopPlayer();
+                }
+            });
+        }
+        player.start();
+    }
+
+    public void pause() {
+        if (player != null) {
+            player.pause();
+        }
+    }
+
+    public void stop() {
+        stopPlayer();
+    }
+
+    private void stopPlayer() {
+        if (player != null) {
+            player.release();
+            player = null;
+            Toast.makeText(this, "MediaPlayer released", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        stopPlayer();
+    }
+
     @Override
     public void onBackPressed() {
         if (backPressedTime + 2000 > System.currentTimeMillis()) {
@@ -229,6 +273,30 @@ public class QuizActivity extends AppCompatActivity {
             Toast.makeText(this, "Press back again to finish", Toast.LENGTH_SHORT).show();
         }
         backPressedTime = System.currentTimeMillis();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.music_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.play_music:
+                play();
+                return true;
+            case R.id.pause_music:
+                pause();
+                return true;
+            case R.id.stop_music:
+                stop();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override

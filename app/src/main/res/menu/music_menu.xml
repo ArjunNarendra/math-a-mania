@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/play_music"
+        android:icon="@drawable/ic_music_play"
+        android:title="Play"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/pause_music"
+        android:icon="@drawable/ic_music_pause"
+        android:title="Pause"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/stop_music"
+        android:icon="@drawable/ic_music_stop"
+        android:title="Stop"
+        app:showAsAction="ifRoom" />
+
+</menu>
