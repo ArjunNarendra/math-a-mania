@@ -61,11 +61,20 @@
 
     <Button
         android:id="@+id/button_take_notes"
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="450dp"
         android:text="Take Notes" />
+
+    <Button
+        android:id="@+id/button_graph_points"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/button_take_notes"
+        android:text="Graph Points" />
 
     <Spinner
         android:id="@+id/spinner_category"
@@ -82,6 +91,23 @@
         android:layout_below="@id/spinner_category"
         android:layout_alignStart="@id/button_start_quiz"
         android:layout_marginTop="16dp" />
+
+    <com.jetradarmobile.snowfall.SnowfallView
+        android:id="@+id/balloon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:snowflakeAlphaMax="255"
+        app:snowflakeAlphaMin="150"
+        app:snowflakeAngleMax="5"
+        app:snowflakeImage="@drawable/balloon"
+        app:snowflakesAlreadyFalling="false"
+        app:snowflakesFadingEnabled="true"
+        app:snowflakeSizeMax="32dp"
+        app:snowflakeSizeMin="8dp"
+        app:snowflakeSpeedMax="12"
+        app:snowflakeSpeedMin="4"
+        app:snowflakesNum="250"
+        android:visibility="invisible"/>
 
 
 </RelativeLayout>

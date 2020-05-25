@@ -85,7 +85,7 @@ public class QuizActivity extends AppCompatActivity {
         textColorDefaultRb = rb1.getTextColors();
         textColorDefaultCd = textViewCountDown.getTextColors();
 
-        setTitle("Test Your Knowledge");
+        setTitle("Music Bar");
 
         Intent intent = getIntent();
         int categoryID = intent.getIntExtra(MainActivity.EXTRA_CATEGORY_ID, 0);

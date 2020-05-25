@@ -45,4 +45,8 @@ dependencies {
     // Room components
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
+    // Animation library
+    implementation 'com.github.JetradarMobile:android-snowfall:1.1.6'
+    //Graph library
+    implementation 'com.jjoe64:graphview:4.2.2'
 }

@@ -9,23 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".MiniGame.MiniGameActivity"></activity>
-
+        <activity android:name=".GraphPoints.GraphPointsActivity"></activity>
+        <activity android:name=".MiniGame.MiniGameActivity" />
         <activity android:name=".MultipleChoice.QuizActivity" />
-
-        <activity android:name=".TakeNotes.AddEditNoteActivity"
-            android:parentActivityName=".TakeNotes.NotesListActivity"/>
-
-
-        <activity android:name=".TakeNotes.NotesListActivity"
-            android:launchMode="singleTop">
-        </activity>
-
-
+        <activity
+            android:name=".TakeNotes.AddEditNoteActivity"
+            android:parentActivityName=".TakeNotes.NotesListActivity" />
+        <activity
+            android:name=".TakeNotes.NotesListActivity"
+            android:launchMode="singleTop"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
