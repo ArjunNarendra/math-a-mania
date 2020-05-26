@@ -3,9 +3,11 @@ package org.overlake.mat803.multiplechoicemathquiz;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
@@ -14,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -63,6 +66,11 @@ public class MainActivity extends AppCompatActivity implements Runnable {
         textViewGameHighscore = findViewById(R.id.text_view_minigamehighscore);
         spinnerCategory = findViewById(R.id.spinner_category);
         snow = findViewById(R.id.balloon);
+        RelativeLayout relativeLayout = findViewById(R.id.main_layout);
+        AnimationDrawable animationDrawable = (AnimationDrawable) relativeLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2000);
+        animationDrawable.setExitFadeDuration(4000);
+        animationDrawable.start();
 
         if (savedInstanceState != null) {
             quizHighScore = savedInstanceState.getInt(KEY_QUIZ_SCORE, quizHighScore);
