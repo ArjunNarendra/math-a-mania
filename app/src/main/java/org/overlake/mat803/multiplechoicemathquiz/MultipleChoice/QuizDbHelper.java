@@ -215,31 +215,31 @@ public class QuizDbHelper extends SQLiteOpenHelper {
                 Question.DIFFICULTY_HARD, Category.ARITHMETIC);
         addQuestion(q30);
         // Geometry Easy
-        Question q31 = new Question("What is the formula for the area of a circle?",
+        Question q31 = new Question("What is the formula for the area of a circle",
                 "πr^2", "2πr", "πr", 1,
                 Question.DIFFICULTY_EASY, Category.GEOMETRY);
         addQuestion(q31);
-        Question q32 = new Question("What is the formula for the circumference of a circle?",
+        Question q32 = new Question("What is the formula for the circumference of a circle",
                 "2πr", "360π", "πr^2", 1,
                 Question.DIFFICULTY_EASY, Category.GEOMETRY);
         addQuestion(q32);
-        Question q33 = new Question("What is the formula for the area of a triangle?",
+        Question q33 = new Question("What is the formula for the area of a triangle",
                 "bh", "(bh) / 2", "(bh) / 4", 1,
                 Question.DIFFICULTY_EASY, Category.GEOMETRY);
         addQuestion(q33);
-        Question q34 = new Question("What is the formula for the area of a rectangle?",
+        Question q34 = new Question("What is the formula for the area of a rectangle",
                 "(bh) / 2", "bh", "h^2", 2,
                 Question.DIFFICULTY_EASY, Category.GEOMETRY);
         addQuestion(q34);
-        Question q35 = new Question("What is the formula for the volume of a cube?",
+        Question q35 = new Question("What is the formula for the volume of a cube",
                 "6s^2", "s^3", "s^4", 2,
                 Question.DIFFICULTY_EASY, Category.GEOMETRY);
         addQuestion(q35);
-        Question q36 = new Question("What is the formula for the surface area of a cube?",
+        Question q36 = new Question("What is the formula for the surface area of a cube",
                 "s^3", "6s^2", "2πr", 2,
                 Question.DIFFICULTY_EASY, Category.GEOMETRY);
         addQuestion(q36);
-        Question q37 = new Question("What is the formula for the surface area of a cylinder?",
+        Question q37 = new Question("What is the formula for the surface area of a cylinder",
                 "2πr^3 + 2πrh", "2πr^2 + 2πrh", "πr^2 + πrh", 2,
                 Question.DIFFICULTY_EASY, Category.GEOMETRY);
         addQuestion(q37);
@@ -288,15 +288,178 @@ public class QuizDbHelper extends SQLiteOpenHelper {
                 "1", "6", "3", 3,
                 Question.DIFFICULTY_MEDIUM, Category.GEOMETRY);
         addQuestion(q48);
-        Question q49 = new Question("What is the circumference of a circle with radius 2?",
+        Question q49 = new Question("What is the circumference of a circle with radius 2",
                 "4", "6π", "4π", 3,
                 Question.DIFFICULTY_MEDIUM, Category.GEOMETRY);
         addQuestion(q49);
-        Question q50 = new Question("What is the area of a circle with radius 6?",
+        Question q50 = new Question("What is the area of a circle with radius 6",
                 "30π", "12π", "36π", 3,
                 Question.DIFFICULTY_MEDIUM, Category.GEOMETRY);
         addQuestion(q50);
         // Geometry Hard
+        Question q51 = new Question("A right triangle has two shorter sides of length 3 and 4. What is the length of the hypotenuse",
+                "5", "2", "7", 1,
+                Question.DIFFICULTY_HARD, Category.GEOMETRY);
+        addQuestion(q51);
+        Question q52 = new Question("A circle has a circumference of 10. It has an arc of length 1. What is the central angle of the arc, in degrees",
+                "36", "1", "360", 1,
+                Question.DIFFICULTY_HARD, Category.GEOMETRY);
+        addQuestion(q52);
+        Question q53 = new Question("A trapezoid has height of length 5 and base of length 1 and 3. What is the area",
+                "10", "15", "5", 1,
+                Question.DIFFICULTY_HARD, Category.GEOMETRY);
+        addQuestion(q53);
+        Question q54 = new Question("What is the perimeter of a regular octagon with sides of length 7",
+                "49", "56", "63", 2,
+                Question.DIFFICULTY_HARD, Category.GEOMETRY);
+        addQuestion(q54);
+        Question q55 = new Question("What angle do the sides of a regular octagon make, in degrees",
+                "120", "135", "90", 2,
+                Question.DIFFICULTY_HARD, Category.GEOMETRY);
+        addQuestion(q55);
+        Question q56 = new Question("What is the surface area of a sphere with diameter 4",
+                "12π", "16π", "32π", 2,
+                Question.DIFFICULTY_HARD, Category.GEOMETRY);
+        addQuestion(q56);
+        Question q57 = new Question("Is it possible to have a triangle with sides of length 2, 4, and 10",
+                "In certain scenarios", "No", "Yes", 2,
+                Question.DIFFICULTY_HARD, Category.GEOMETRY);
+        addQuestion(q57);
+        Question q58 = new Question("Which of these is a property of a rhombus",
+                "It has five sides", "The sides are of equal length", "Opposite angles of a rhombus have equal measures", 3,
+                Question.DIFFICULTY_HARD, Category.GEOMETRY);
+        addQuestion(q58);
+        Question q59 = new Question("Which has the greater area: A circle of radius 2, or a square with sides of length 3?",
+                "They both have the same area", "Square", "Circle", 3,
+                Question.DIFFICULTY_HARD, Category.GEOMETRY);
+        addQuestion(q59);
+        Question q60 = new Question("How many sides does a dodecagon have",
+                "10", "15", "12", 3,
+                Question.DIFFICULTY_HARD, Category.GEOMETRY);
+        addQuestion(q60);
+        // Algebra Easy
+        Question q61 = new Question("x + 3 = 8: x = ",
+                "5", "11", "0", 1,
+                Question.DIFFICULTY_EASY, Category.ALGEBRA);
+        addQuestion(q61);
+        Question q62 = new Question("x / 5 = 10: x = ",
+                "50", "2", "5", 1,
+                Question.DIFFICULTY_EASY, Category.ALGEBRA);
+        addQuestion(q62);
+        Question q63 = new Question("x - 34 = 1: x = ",
+                "35", "36", "33", 1,
+                Question.DIFFICULTY_EASY, Category.ALGEBRA);
+        addQuestion(q63);
+        Question q64 = new Question("x * 8 = 64: x = ",
+                "60", "8", "12", 2,
+                Question.DIFFICULTY_EASY, Category.ALGEBRA);
+        addQuestion(q64);
+        Question q65 = new Question("5x = 10: x = ",
+                "50", "2", "20", 2,
+                Question.DIFFICULTY_EASY, Category.ALGEBRA);
+        addQuestion(q65);
+        Question q66 = new Question("2x + 5 = 9: x = ",
+                "1", "2", "3", 2,
+                Question.DIFFICULTY_EASY, Category.ALGEBRA);
+        addQuestion(q66);
+        Question q67 = new Question("40 + x = 90: x = ",
+                "30", "40", "50", 3,
+                Question.DIFFICULTY_EASY, Category.ALGEBRA);
+        addQuestion(q67);
+        Question q68 = new Question("x^2 = 64: x = ",
+                "32", "4", "8", 3,
+                Question.DIFFICULTY_EASY, Category.ALGEBRA);
+        addQuestion(q68);
+        Question q69 = new Question("2x - 4 = 8: x = ",
+                "1", "12", "6", 3,
+                Question.DIFFICULTY_EASY, Category.ALGEBRA);
+        addQuestion(q69);
+        Question q70 = new Question("3x + 3x = 12: x = ",
+                "1", "3", "2", 3,
+                Question.DIFFICULTY_EASY, Category.ALGEBRA);
+        addQuestion(q70);
+        // Algebra Medium
+        Question q71 = new Question("2x - 6 = 8x: x = ",
+                "-1", "1", "2", 1,
+                Question.DIFFICULTY_MEDIUM, Category.ALGEBRA);
+        addQuestion(q71);
+        Question q72 = new Question("3x^2 = 48: x = ",
+                "4", "5", "6", 1,
+                Question.DIFFICULTY_MEDIUM, Category.ALGEBRA);
+        addQuestion(q72);
+        Question q73 = new Question("6x - 4 = 3x + 8: x = ",
+                "4", "6", "1", 1,
+                Question.DIFFICULTY_MEDIUM, Category.ALGEBRA);
+        addQuestion(q73);
+        Question q74 = new Question("x/12 = 3/x: x = ",
+                "5", "6", "3", 2,
+                Question.DIFFICULTY_MEDIUM, Category.ALGEBRA);
+        addQuestion(q74);
+        Question q75 = new Question("x^2 * x^1 = 27: x = ",
+                "1", "3", "2", 2,
+                Question.DIFFICULTY_MEDIUM, Category.ALGEBRA);
+        addQuestion(q75);
+        Question q76 = new Question("1/(x^2) = 64: x = ",
+                "1/4", "1/8", "1/2", 2,
+                Question.DIFFICULTY_MEDIUM, Category.ALGEBRA);
+        addQuestion(q76);
+        Question q77 = new Question("(x + 1)^2 = 25: x = ",
+                "3", "5", "4", 3,
+                Question.DIFFICULTY_MEDIUM, Category.ALGEBRA);
+        addQuestion(q77);
+        Question q78 = new Question("x/6 + 6 = 42: x = ",
+                "220", "211", "216", 3,
+                Question.DIFFICULTY_MEDIUM, Category.ALGEBRA);
+        addQuestion(q78);
+        Question q79 = new Question("3! + x = 10: x = ",
+                "2", "7", "4", 3,
+                Question.DIFFICULTY_MEDIUM, Category.ALGEBRA);
+        addQuestion(q79);
+        Question q80 = new Question("x^2 + x = 30: x = ",
+                "3", "4", "5", 3,
+                Question.DIFFICULTY_MEDIUM, Category.ALGEBRA);
+        addQuestion(q80);
+        // Algebra Hard
+        Question q81 = new Question("x^2 + 5x + 6 = 0: x = ",
+                "-2, -3", "-2", "-1, -2", 1,
+                Question.DIFFICULTY_HARD, Category.ALGEBRA);
+        addQuestion(q81);
+        Question q82 = new Question("2x^2 + 6x + 4 = 0: x = ",
+                "-1, -2", "0, 1", "0, -1", 1,
+                Question.DIFFICULTY_HARD, Category.ALGEBRA);
+        addQuestion(q82);
+        Question q83 = new Question("4x^2 + 4x + 1: x = ",
+                "-0.5", "0.5", "-0.5, 1.5", 1,
+                Question.DIFFICULTY_HARD, Category.ALGEBRA);
+        addQuestion(q83);
+        Question q84 = new Question("5/x + 7x = 8x: x = ",
+                "2", "5", "1", 2,
+                Question.DIFFICULTY_HARD, Category.ALGEBRA);
+        addQuestion(q84);
+        Question q85 = new Question("x^3 + 2x^2 + 4x + 3: x = ",
+                "0", "-1", "2", 2,
+                Question.DIFFICULTY_HARD, Category.ALGEBRA);
+        addQuestion(q85);
+        Question q86 = new Question("40x = 4000/x: x = ",
+                "5", "10", "100", 2,
+                Question.DIFFICULTY_HARD, Category.ALGEBRA);
+        addQuestion(q86);
+        Question q87 = new Question("x^3 / x^5 = 1/81: x = ",
+                "5", "7", "9", 3,
+                Question.DIFFICULTY_HARD, Category.ALGEBRA);
+        addQuestion(q87);
+        Question q88 = new Question("x^4 + x^2 = 20: x = ",
+                "3", "1", "2", 3,
+                Question.DIFFICULTY_HARD, Category.ALGEBRA);
+        addQuestion(q88);
+        Question q89 = new Question("20/(x-3) = 5: x = ",
+                "6", "4", "7", 3,
+                Question.DIFFICULTY_HARD, Category.ALGEBRA);
+        addQuestion(q89);
+        Question q90 = new Question("(x^2)^4 = 256",
+                "4", "12", "2", 3,
+                Question.DIFFICULTY_HARD, Category.ALGEBRA);
+        addQuestion(q90);
     }
 
     private void addQuestion(Question question) {
