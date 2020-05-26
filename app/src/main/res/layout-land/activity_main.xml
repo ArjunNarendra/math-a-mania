@@ -2,9 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_green_light"
+    android:background="@drawable/gradient_list"
     android:padding="16dp"
     tools:context=".MainActivity">
 
@@ -69,11 +70,11 @@
 
     <Button
         android:id="@+id/button_graph_points"
-        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button_take_notes"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:text="Graph Points" />
 
     <Spinner
@@ -96,18 +97,18 @@
         android:id="@+id/balloon"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="invisible"
         app:snowflakeAlphaMax="255"
         app:snowflakeAlphaMin="150"
         app:snowflakeAngleMax="5"
         app:snowflakeImage="@drawable/balloon"
-        app:snowflakesAlreadyFalling="false"
-        app:snowflakesFadingEnabled="true"
         app:snowflakeSizeMax="32dp"
         app:snowflakeSizeMin="8dp"
         app:snowflakeSpeedMax="12"
         app:snowflakeSpeedMin="4"
-        app:snowflakesNum="250"
-        android:visibility="invisible"/>
+        app:snowflakesAlreadyFalling="false"
+        app:snowflakesFadingEnabled="true"
+        app:snowflakesNum="250" />
 
 
 </RelativeLayout>

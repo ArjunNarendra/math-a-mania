@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements Runnable {
         textViewGameHighscore = findViewById(R.id.text_view_minigamehighscore);
         spinnerCategory = findViewById(R.id.spinner_category);
         snow = findViewById(R.id.balloon);
+
         RelativeLayout relativeLayout = findViewById(R.id.main_layout);
         AnimationDrawable animationDrawable = (AnimationDrawable) relativeLayout.getBackground();
         animationDrawable.setEnterFadeDuration(2000);
@@ -239,6 +240,7 @@ public class MainActivity extends AppCompatActivity implements Runnable {
 
     @Override
     public void run() {
+
         loadCategories();
         loadDifficultyLevels();
         loadHighscore();
