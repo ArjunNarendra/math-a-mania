@@ -31,21 +31,52 @@ public class QuestionMiniGame implements Parcelable {
     private String questionPhrase;
 
     // generate a new random question
-    public QuestionMiniGame (int upperLimit) {
+    public QuestionMiniGame (int type, int upperLimit) {
         this.upperLimit = upperLimit;
         Random randomNumberMaker = new Random();
         this.firstNumber = randomNumberMaker.nextInt(upperLimit);
         this.secondNumber = randomNumberMaker.nextInt(upperLimit);
-        this.answer = this.firstNumber + this.secondNumber;
-        this.questionPhrase = firstNumber + " + " + secondNumber + " = ";
+        if (type == 0) {
+            this.answer = this.firstNumber + this.secondNumber;
+            this.questionPhrase = firstNumber + " + " + secondNumber + " = ";
+        } else if (type == 1) {
+            this.answer = this.firstNumber - this.secondNumber;
+            this.questionPhrase = firstNumber + " - " + secondNumber + " = ";
+        } else if (type == 2) {
+            if (this.upperLimit > 15) {
+                this.upperLimit = 15;
+                this.firstNumber = randomNumberMaker.nextInt(this.upperLimit);
+                this.secondNumber = randomNumberMaker.nextInt(this.upperLimit);
+            }
+            this.answer = this.firstNumber * this.secondNumber;
+            this.questionPhrase = firstNumber + " * " + secondNumber + " = ";
+        } else {
+            if (this.upperLimit > 150) {
+                this.upperLimit = 150;
+                this.firstNumber = randomNumberMaker.nextInt(this.upperLimit);
+                this.secondNumber = randomNumberMaker.nextInt(this.upperLimit);
+            }
+            while (this.secondNumber == 0) {
+                this.secondNumber = randomNumberMaker.nextInt(this.upperLimit);
+            }
+            while (this.firstNumber % this.secondNumber != 0) {
+                this.firstNumber = randomNumberMaker.nextInt(this.upperLimit);
+            }
+            this.answer = this.firstNumber / this.secondNumber;
+            this.questionPhrase = firstNumber + " / " + secondNumber + " = ";
+        }
         this.answerPosition = randomNumberMaker.nextInt(4);
+        createAnswerArray();
+        answerArray[answerPosition] = answer;
+    }
+
+    private void createAnswerArray() {
         this.answerArray = new int[] {0, 1, 2, 3};
         this.answerArray[0] = answer + 1;
         this.answerArray[1] = answer + 10;
         this.answerArray[2] = answer - 5;
         this.answerArray[3] = answer - 2;
         this.answerArray = shuffleArray(this.answerArray);
-        answerArray[answerPosition] = answer;
     }
 
 

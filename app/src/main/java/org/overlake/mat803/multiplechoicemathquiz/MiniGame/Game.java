@@ -5,6 +5,7 @@ import android.media.SoundPool;
 import org.overlake.mat803.multiplechoicemathquiz.MiniGame.QuestionMiniGame;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Game {
 
@@ -21,12 +22,14 @@ public class Game {
         numberIncorrect = 0;
         totalQuestions = 0;
         score = 0;
-        currentQuestion = new QuestionMiniGame(10);
+        currentQuestion = new QuestionMiniGame(1, 10);
         questions = new ArrayList<QuestionMiniGame>();
     }
 
     public void makeNewQuestion() {
-        currentQuestion = new QuestionMiniGame(totalQuestions * 2 + 5);
+        Random randomNumberMaker = new Random();
+        int questionType = randomNumberMaker.nextInt(4);
+        currentQuestion = new QuestionMiniGame(questionType, totalQuestions * 2 + 5);
         totalQuestions++;
         questions.add(currentQuestion);
     }
